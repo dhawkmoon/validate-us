@@ -89,13 +89,15 @@ var forms = [
 
 ```
 
-That's it. Our form and it's fields now are declared and ready to be validated, but first we also need to defined basic actions. 
+That's it. Our form and it's fields now are declared and ready to be validated, but first we also need to define basic actions. 
 This library provide several basic actions, taht should be defined by user:
 
 - onFieldError
 - onSubmitError
 - onSuccess
 - onFormSuccess
+
+Actually, "action" - is a callback function, that handles specific. If we define these 4 functions (useing the same name), we will create four common handlers. We can also provide specific handler per field and form. But we will talk about it later.
 
 ### onFieldError
 
