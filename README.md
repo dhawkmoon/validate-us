@@ -136,7 +136,7 @@ function onSuccess( field ) {
 	$( field ).css({border: '1px solid green'})
 	$( field ).next().text( '' ) //remove errrr text
 	//... whatever
-	}
+}
 ```
 
 Function above adds green border to input and remove err text, if such was appended before on form submission.
