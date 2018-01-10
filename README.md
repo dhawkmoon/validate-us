@@ -111,3 +111,47 @@ var onFieldError = function( field, result ) { 	// field - input dom el, being v
 }
 ```
 
+The function in the example above will add red border to our input.
+
+### onSubmitError
+
+This action fires, when user try to submit form. We can use this action, for example, to show error text to user.
+> Tip: You can get error text, you may use ***result.error***
+
+``` js
+function onSubmitError( field, result ) {
+	$( field ).next().text( result.error )
+	//... whatever
+}
+```
+
+The function in the example above will add text next to input field.
+
+### onSuccess
+
+This action fires, when single input changes and pass validation.
+```
+function onSuccess( field ) {
+		$( field ).css({border: '1px solid green'})
+		$( field ).next().text( '' ) //remove errrr text
+		//... whatever
+	}
+```
+
+Function above adds green border to input and remove err text, if such was appended before on form submission.
+
+### onFormSuccess
+
+This action fires, when a whole form have passed validation.
+Here you can handle backend data processing via ajax, or just submit form
+
+> Tip: this action gives provide form dom element. It can be submitted like this: form.submit()
+
+``` js
+function onFormSuccess( form ) {
+	alert('Form is valid right now.')
+	//... form submission and so on
+}
+```
+
+The function above just alerts message to user.
