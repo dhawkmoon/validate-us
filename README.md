@@ -27,14 +27,14 @@ Let's create a simple html form.
 Form and it's fields must have unique ids.
 
 Next step is to create js file and define our fields and forms as objects.
-As you see, our simple form has only two fields - username fields and password field. Let's define username field first. 
+As you see, our simple form has only two fields - username field and password field. Let's define username field first. 
 Let's suppose that our username should be required and can include only latin characters and whitespaces, no digits or any other symbols.
 
 ``` js
 
 var username = {
   value: '', //initial value of input will be overriden with this value if its lenght > 0
-  placeholder: 'John Doe' //the same for placeholder,
+  placeholder: 'John Doe', //the same for placeholder
   validate: { //validation object, that contains rules
     required: { //if this property is presented, this field must be filled in order to pass validation
       error: 'Please, fill username properly', //error text, that will be used later (f.e. you can show it to user ... )
@@ -43,7 +43,7 @@ var username = {
       reg: /^[a-zA-Z\s]+$/, //pattern
       error: 'Please, fill username properly', //erorr text
     },
-  }
+  },
 }
 
 ```
