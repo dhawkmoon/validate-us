@@ -156,3 +156,16 @@ function onFormSuccess( form ) {
 ```
 
 The function above just alerts message to user.
+
+## At last...
+
+Now, after we have defined our fields, forms and actions, we can make it work!
+Just call this funtion and pass array with forms:
+
+``` js
+  validateUs( forms )
+```
+
+You can find this example working in js-fiddle.
+
+
