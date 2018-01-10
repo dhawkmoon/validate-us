@@ -102,13 +102,12 @@ Actually, "action" - is a callback function, that handles specific. If we define
 ### onFieldError
 
 This action fires, when user change field. For example while typing.
-
 So, basic example of such action may be defined as this:
 
 ``` js
 var onFieldError = function( field, result ) { 	// field - input dom el, being validated, result - object, contaninig error messages
-		$( field ).css({border: '1px solid red'})
-		//... whatever
-	}
+	$( field ).css({border: '1px solid red'})
+	//... whatever
+}
 ```
 
