@@ -47,3 +47,65 @@ var username = {
 }
 
 ```
+
+As you can see, we have declared our validation rules for username field. But we haven't set any id yet. So, we have an abstract object, that describes a validation process for any username field. If we have two or three different username fields, this rules can be applied for them at once, or we can create different rules for any reason.
+
+Let's move forward and create password object. Let's suppose, that our password should include word and digits, and it's minimum length should be 4 scharacters.
+
+``` js
+
+var password = {
+  value: 'whatever',
+  placeholder: 'Type your password, please',
+  validate: {
+    required: {
+      error: 'Please, fill password field',
+    },
+    pattern: {
+      reg: /^[\w\d]+$/
+    },
+    min: {
+      treshold: 4,
+      error: 'The minimum amount of symbols is 4',
+    },
+  }
+}
+
+```
+
+Now, it's time to create such object for our form. Actually, we have only one form, but this library can handle several forms, so we should create an array. 
+
+``` js
+
+var forms = [
+  {
+    id: 'test=form', //id of our form
+    fields: { // here we connect actual html inputs of our forms with previously declared rules via ids
+      myname: username, //IMPORTANT: the key of property - id of our input! Value - our field object.
+      mypass: password, //the same for password.
+    }
+  }
+]
+
+That's it. Our form and it's fields now are declared and ready to be validated, but first we also need to defined basic actions. 
+
+This library provide several basic actions, taht should be defined by user:
+
+- onFieldError
+- onSubmitError
+- onSuccess
+- onFormSuccess
+
+### onFieldError
+
+This action fires, when user change field. For example while typing.
+
+So, basic example of such action may be defined as this:
+
+``` js
+var onFieldError = function( field, result ) { 	// field - input dom el, being validated, result - object, contaninig error messages
+		$( field ).css({border: '1px solid red'})
+		//... whatever
+	}
+```
+
