@@ -88,6 +88,7 @@ var forms = [
 ]
 
 ```
+## Actions
 
 That's it. Our form and it's fields now are declared and ready to be validated, but first we also need to define basic actions. 
 This library provide several basic actions, taht should be defined by user:
