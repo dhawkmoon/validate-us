@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Validate-us sample</title>
+</head>
+<body>
+  <!-- FORM MUST HAVE ID -->
+  <form action="/whatever.php" id="test-form">
+    <label for="myname">Username:</label>
+    <input type="text" name="name" placeholder="username" id="myname"> <span class="error"></span> <br /><br />
+    <label for="myname">Password: </label>
+    <input type="password" name="password" placeholder="password" id="mypass"> <span class="error"></span> <br /><br />
+    <button>Register</button>
+  </form>
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="validate-us.js"></script>
+  <script type="text/javascript" src="sample.js"></script>
+
+  <style media="screen">
+    body {
+      font-family: Arial;
+      background-color: #ddd;
+    }
+    input {
+      width: 210px;
+      outline: none !important;
+    }
+    .error {
+      color: red;
+      font-size: 12px;
+    }
+    #test-form {
+      position: absolute;
+      width: 300px;
+      height: 100px;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      padding: 25px;
+    }
+    #mypass {
+      position: relative;
+      left: 4px;
+    }
+    button {
+      float: right;
+      position: absolute;
+      right: 31px;
+      bottom: 15px;
+    }
+  </style>
+</body>
+</html>
