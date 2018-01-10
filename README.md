@@ -131,11 +131,11 @@ The function in the example above will add text next to input field.
 ### onSuccess
 
 This action fires, when single input changes and pass validation.
-```
+``` js
 function onSuccess( field ) {
-		$( field ).css({border: '1px solid green'})
-		$( field ).next().text( '' ) //remove errrr text
-		//... whatever
+	$( field ).css({border: '1px solid green'})
+	$( field ).next().text( '' ) //remove errrr text
+	//... whatever
 	}
 ```
 
