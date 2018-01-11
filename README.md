@@ -1,4 +1,7 @@
 # Validate-us
+
+![VER](https://img.shields.io/badge/ver-0.2--alpha-red.svg)
+
 Lightweight library making form validation in declarative style. Requires jQuery (yet).
 
 ## Installation
