@@ -12,6 +12,20 @@ Download this package, and include script named validate-us.min.js in your head 
 
 This library handles declarative connection of user predefined rules with html forms. This library doesn't cover any form processing, messages alerting or styling. User should provide his own callbacks functions for such tasks, but this library provides a mechanism of connecting such functions with validation proccess. Better take a look on the example below.
 
+## Features
+
+- Full scalability. 
+
+Once you have defined fields, you can use it everywhere to connect them in forms. If you need to add another rules for specific field clone you can just define another field and apply new rules.
+
+- No predefined messages and formats
+
+Feel free to use any other libriries and validators to apply predefined rules, or your own callback functions. No restrictions in messaging. This lib just doen't handle it. Write in your language and don't hack.
+
+- That's not a ready tool for validation at all
+
+Actually, this is only a set of a couple functions, that offers a declarative way of form validations. Sometimes you can put few callbacks and that's it. And some projects need tones of validation. You can use this library in both cases. 
+
 ## Basic usage
 
 Let's create a simple html form.
