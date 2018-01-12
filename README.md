@@ -120,7 +120,7 @@ The function in the example above will add red border to our input.
 ### onSubmitError
 
 This action fires, when user try to submit form. We can use this action, for example, to show error text to user.
-> Tip: You can get error text, you may use ***result.error***
+> Tip: To get error text, you can use ***result.error***
 
 ``` js
 function onSubmitError( field, result ) {
