@@ -16,11 +16,11 @@ This library handles declarative connection of user predefined rules with html f
 
 - Full scalability. 
 
-Once you have defined fields, you can use it everywhere to connect them in forms. If you need to add another rules for specific field clone you can just define another field and apply new rules.
+Once you have defined fields, you can use it everywhere to connect them with forms. If you need to add another rules for specific field you can just clone or define another field with new rules.
 
 - No predefined messages and formats
 
-Feel free to use any other libriries and validators to apply predefined rules, or your own callback functions. No restrictions in messaging. This lib just doen't handle it. Write in your language and don't hack.
+Feel free to use any other libriries and validators to apply predefined rules, or your own callback functions. No restrictions in messaging. This lib just doesn't handle it. Write in your local language and don't hack, if you don\t need to localize it. Use your favourite l18n tool if you need.
 
 - That's not a ready tool for validation at all
 

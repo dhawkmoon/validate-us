@@ -7,7 +7,7 @@ function validateField( f ) {
 		//console.log(f.validate)
 		//Required fields checks if value is not empty
 		if( f.validate.required ) {
-			if( f.value.length == 0 ) {
+			if( f.value.length === 0 ) {
 				return {
 					error: f.validate.required.error,
 				}
@@ -57,18 +57,17 @@ function validateField( f ) {
 	Form validation func
 	***/
 function validateForm( e ) {
-	var f = e.data
+	var f = e.target.data
 	//console.log(f)
 	e.preventDefault()
 	var errors = []
 	for( var k in f.fields ) {
 
 		if(  f.fields.hasOwnProperty( k )  ) {
-			var $field = $( '#' + k )
-		//	console.log(k, $(this) )
-			var v = $field.val()
-			f.fields[k].value = v
-		//	console.log(f)
+			var $field = document.getElementById( k )
+
+			f.fields[k].value = $field.value
+	
 			var result = validateField(f.fields[k])
 			//console.log(result)
 			if( result !== true ) {
@@ -93,23 +92,22 @@ function validateForm( e ) {
 	}
 
   //
-  if( errors.length == 0 ) {
-    var $form = $( this )
+  if( errors.length === 0 ) {
+    var id = this.getAttribute('id')
     var form = forms.filter( function( form ) {
-      //console.log( form.id, $form )
-      return form.id == $form.attr('id')
+      return form.id == id
     } )
-    if( form.length == 0 ) {
+    if( form.length === 0 ) {
       console.log( 'No form set' )
-      window.onFormSuccess( $(this) )
+      window.onFormSuccess( this )
     }
     else {
       //
       if( typeof form[0].onFormSuccess == 'function' ) {
-        form[0].onFormSuccess( $(this) )
+        form[0].onFormSuccess( this )
       }
       else {
-          window.onFormSuccess( $(this) )
+        window.onFormSuccess( this )
       }
       //
     }
@@ -118,26 +116,26 @@ function validateForm( e ) {
 
 function validateSingleField( e ) {
 	//console.log(1)
-	var field = e.data
+	var field = e.target.data
 	//console.log(field)
-	var $field = $( this )
-	field.value = $field.val()
+
+	field.value = this.value
 	var result = validateField( field )
 	//console.log(result)
 	if( result !== true ) {
 		if( typeof field.onError == 'function' ) {
-			field.onFieldError($field, result )
+			field.onFieldError( this, result )
 		}
 		else {
-			window.onFieldError($field, result )
+			window.onFieldError(this, result )
 		}
 	}
 	else {
 		if( typeof field.onSuccess == 'function' ) {
-			field.onSuccess( $field )
+			field.onSuccess( this )
 		}
 		else {
-			window.onSuccess( $field )
+			window.onSuccess( this )
 		}
 	}
 }
@@ -145,18 +143,23 @@ function validateSingleField( e ) {
 function validateUs( forms ) {
   //Handlers
   for( var i=0; i<forms.length; i++ ) {
-  	$('#'+forms[i].id).on('submit', forms[i], validateForm );
+    var $form = document.getElementById( forms[i].id )
+  	
+  	$form.addEventListener( 'submit', validateForm, false )
+  	$form.data = forms[i]
+  	
   	for( var k in forms[i].fields ) {
-  		//console.log($( '#'+forms[i].id ).find( '[data-field="' + k + '"]' ))
-  		$( '#' + k ).on('keyup', forms[i].fields[k], validateSingleField )
-  		$( '#' + k ).on('change', forms[i].fields[k], validateSingleField )
+  		var $field = document.getElementById( k )
+  		$field.addEventListener( 'keyup', validateSingleField, false )
+  		$field.addEventListener( 'change', validateSingleField, false )
+        $field.data = forms[i].fields[k]
       //Set placeholder
       if( typeof forms[i].fields[k].placeholder != 'undefined' && forms[i].fields[k].placeholder.length > 0  ) {
-        $( '#' + k ).attr( 'placeholder', forms[i].fields[k].placeholder )
+        $field.setAttribute( 'placeholder', forms[i].fields[k].placeholder )
       }
       //Set value
       if( typeof forms[i].fields[k].value != 'undefined' && forms[i].fields[k].value.length > 0  ) {
-        $( '#' + k ).val( forms[i].fields[k].value  )
+        $field.value = forms[i].fields[k].value
       }
   	}
   }
