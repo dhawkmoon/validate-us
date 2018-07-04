@@ -1,12 +1,12 @@
 # Validate-us
 
-![VER](https://img.shields.io/badge/ver-0.2--alpha-red.svg) ![requires jquery](https://img.shields.io/badge/jquery->_1.9.1-blue.svg)
+![VER](https://img.shields.io/badge/ver-0.3--alpha-red.svg) 
 
-Lightweight library making form validation in declarative style. Requires jQuery (yet).
+Lightweight library making form validation in declarative style.
 
 ## Installation
 
-Download this package, and include script named validate-us.min.js in your head of footer section, right after jQuery library.
+Download this package, and include script named validate-us.min.js in your head of footer section.
 
 ## About
 
@@ -17,6 +17,10 @@ This library handles declarative connection of user predefined rules with html f
 - Full scalability. 
 
 Once you have defined fields, you can use it everywhere to connect them with forms. If you need to add another rules for specific field you can just clone or define another field with new rules.
+
+- No dependencies, 100% vanilla js
+
+To connect user-defined rules with fields and forms this library uses only vanilla js. You can connect it with any other library to handle messaging and actions.
 
 - No predefined messages and formats
 
